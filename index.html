@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Arcade - Play & Upload Games</title>
+    <meta name="description" content="Welcome to Game Arcade! Play free online games and upload your own creations.">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: #fff;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            color: #ff6f61;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ff6f61;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #ff6f61;
+            margin-bottom: 20px;
+        }
+
+        .game-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .game-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            width: calc(33.333% - 20px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .game-card img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        .game-card h3 {
+            margin: 10px 0;
+            font-size: 1.2rem;
+            color: #fff;
+        }
+
+        .game-card p {
+            font-size: 0.9rem;
+            color: #ddd;
+        }
+
+        .game-card a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background: #ff6f61;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .game-card a:hover {
+            background: #ff4a3d;
+        }
+
+        /* Upload Section */
+        .upload-section {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .upload-section h2 {
+            color: #ff6f61;
+        }
+
+        .upload-section input[type="file"] {
+            display: none;
+        }
+
+        .upload-section label {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #ff6f61;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .upload-section label:hover {
+            background: #ff4a3d;
+        }
+
+        .upload-section button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: #2c3e50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .upload-section button:hover {
+            background: #34495e;
+        }
+
+        /* Locked Section */
+        .locked-section {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .locked-section h2 {
+            color: #ff6f61;
+        }
+
+        .locked-section input[type="text"] {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            width: 200px;
+        }
+
+        .locked-section button {
+            padding: 10px 20px;
+            background: #ff6f61;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .locked-section button:hover {
+            background: #ff4a3d;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.7);
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Game Arcade</h1>
+        <nav>
+            <a href="#featured">Featured Games</a>
+            <a href="#categories">Categories</a>
+            <a href="#upload">Upload Game</a>
+            <a href="#leaderboard">Leaderboard</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Featured Games Section -->
+        <section class="featured-games" id="featured">
+            <h2>Featured Games</h2>
+            <div class="game-list">
+                <div class="game-card">
+                    <img src="https://via.placeholder.com/300x200" alt="Game 1">
+                    <h3>Space Invaders</h3>
+                    <p>Classic arcade game where you defend Earth from alien invaders.</p>
+                    <a href="#">Play Now</a>
+                </div>
+                <div class="game-card">
+                    <img src="https://via.placeholder.com/300x200" alt="Game 2">
+                    <h3>Puzzle Mania</h3>
+                    <p>Solve challenging puzzles and test your brainpower.</p>
+                    <a href="#">Play Now</a>
+                </div>
+                <div class="game-card">
+                    <img src="https://via.placeholder.com/300x200" alt="Game 3">
+                    <h3>Racing Rivals</h3>
+                    <p>Compete in high-speed races and claim the top spot.</p>
+                    <a href="#">Play Now</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="categories" id="categories">
+            <h2>Categories</h2>
+            <div class="game-list">
+                <div class="game-card">
+                    <img src="https://via.placeholder.com/300x200" alt="Action Games">
+                    <h3>Action Games</h3>
+                    <p>Fast-paced games full of excitement and adventure.</p>
+                    <a href="#">Explore</a>
+                </div>
+                <div class="game-card">
+                    <img src="https://via.placeholder.com/300x200" alt="Puzzle Games">
+                    <h3>Puzzle Games</h3>
+                    <p>Challenge your mind with fun and engaging puzzles.</p>
+                    <a href="#">Explore</a>
+                </div>
+                <div class="game-card">
+                    <img src="https://via.placeholder.com/300x200" alt="Classic Arcade">
+                    <h3>Classic Arcade</h3>
+                    <p>Relive the nostalgia of old-school arcade games.</p>
+                    <a href="#">Explore</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Locked Upload Section -->
+        <section class="locked-section" id="upload">
+            <h2>Upload Your Game</h2>
+            <p>This section is locked. Enter the key to unlock.</p>
+            <input type="text" id="unlock-key" placeholder="Enter Key">
+            <button onclick="unlockUploadSection()">Unlock</button>
+        </section>
+
+        <!-- Hidden Upload Section (Initially Hidden) -->
+        <section class="upload-section" id="upload-section" style="display: none;">
+            <h2>Upload Your Game</h2>
+            <p>Share your game with the world! Upload it here.</p>
+            <input type="file" id="game-upload" accept=".zip,.rar,.7z">
+            <label for="game-upload">Choose File</label>
+            <button onclick="uploadGame()">Upload</button>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 Game Arcade. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript for Unlocking Upload Section
+        function unlockUploadSection() {
+            const key = document.getElementById('unlock-key').value;
+            if (key === "2010") { // Correct key is 2010
+                document.getElementById('upload-section').style.display = 'block';
+                document.querySelector('.locked-section').style.display = 'none';
+            } else {
+                alert('Incorrect key! Please try again.');
+            }
+        }
+
+        // JavaScript for Upload Functionality
+        function uploadGame() {
+            const fileInput = document.getElementById('game-upload');
+            if (fileInput.files.length > 0) {
+                const file = fileInput.files[0];
+                alert(`File "${file.name}" uploaded successfully!`);
+            } else {
+                alert('Please select a file to upload.');
+            }
+        }
+    </script>
+</body>
+</html>
